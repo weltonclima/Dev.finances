@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev.Finances$</title>
+  <link rel="stylesheet" href="../icons/fabric-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <img id="logo" src="../assets/logo.svg" alt="Logo Dev Finance">
+    <div id="checkbox">
+      <img onclick="Users.logout()" class="logout" src="../assets/logout.svg" alt="Logout">
+      <img onclick="Visible.value()" class="icon-eye" src="../assets/eye-visible.svg" alt="olho invidivel">
+      <input id="switch" class="sr-only" type="checkbox" name="theme">
+      <label id="labes" for="switch">Toggle</label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="balance">
+      <h2 class="sr-only">Balanço</h2>
+      <div class="card">
+        <h3>
+          <span>Entradas</span>
+          <img src="../assets/income.svg" alt="Image de entradas">
+        </h3>
+        <div id="div-incomeDisplay" class="active">
+          <p id="incomeDisplay" class="amount active">R$ 0,00</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>
+          <span>Saídas</span>
+          <img src="../assets/expense.svg" alt="Image de saídas">
+        </h3>
+
+        <div id="div-expenseDisplay" class="active">
+          <p id="expenseDisplay" class="amount active">R$ 0,00</p>
+        </div>
+      </div>
+
+      <div class="card total" class="description">
+        <h3>
+          <span>Total</span>
+          <img src="../assets/total.svg" alt="Image de total">
+        </h3>
+        <div id="div-totalDisplay" class="active">
+          <p id="totalDisplay" class="amount active">R$ 0,00</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="transaction">
+      <h2 class="sr-only">Transações</h2>
+
+      <a href="#" onclick="Modal.open()" class="button new">+ Nova Transação</a>
+      <span class="span-user"></span>
+
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th class="description">Descrição</th>
+            <th class="amount">Valor</th>
+            <th class="date">Data</th>
+            <th class="icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <div class="modal-overlay">
+    <div class="modal">
+      <div id="form">
+        <h2>Nova Transação</h2>
+        <form action="" onsubmit="Form.submit(event)">
+          <div class="input-group description">
+            <div class="div-input" id="div-description">
+              <label class="sr-only" for="description">Descrição</label>
+              <input type="text" id="description" name="description" placeholder="Descrição">
+            </div>
+          </div>
+          <div class="input-group amount">
+            <label class="sr-only" for="amount">Valor</label>
+            <div class="div-input" id="div-amount">
+              <input type="number" step="0.01" id="amount" name="amount" placeholder="0,00">
+              <small class="help">
+            </div>
+            Use o sinal - (negativo) para despesas e ,(vírgula) para casas decimais
+            </small>
+          </div>
+          <div class="input-group date">
+            <div class="div-input" id="div-date">
+              <label class="sr-only" for="date">Data</label>
+              <input type="date" id="date" name="date">
+            </div>
+          </div>
+          <div class="input-group actions">
+            <a onclick="Modal.close()" href="#" class="button cancel">Cancelar</a>
+            <button id="saveBtn">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+
+    <p>Dev.Finances$</p>
+
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script type="text/javascript">
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      max: 25,
+      speed: 400
+    });
+  </script>
+
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev.Finances$</title>
+  <link rel="stylesheet" href="./icons/fabric-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <img id="logo" src="./assets/logo.svg" alt="Logo Dev Finance">
+  </header>
+
+  <div class="login modal-overlay">
+    <div class="modal login">
+      <div class="form">
+        <h2>Acesso</h2>
+        <form action="" onsubmit="FormLogin.submitLogin(event)">
+          <div class="input-group loginAccess">
+            <div class="div-input" id="div-loginAccess">
+              <label class="sr-only" for="loginAccess">Login</label>
+              <input type="text" id="loginAccess" name="loginAccess" placeholder="Login">
+            </div>
+          </div>
+          <div class="input-group passwordLogin">
+            <div class="div-input" id="div-passwordLogin">
+              <label class="sr-only" for="passwordLogin">Valor</label>
+              <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Password">
+            </div>
+            <span class="">
+              Nenhuma conta? <a onClick="Modal.openCadastro()" href="#" id="new-account">Crie uma!</a>
+            </span>
+          </div>
+          <div class="input-group actions log">
+            <button id="save-login">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="cadastro modal-overlay">
+    <div class="modal cadastro">
+      <div class="form" id="cadastro">
+        <h2>Cadastro</h2>
+        <form action="" onsubmit="FormRegister.submitRegister(event)">
+          <div class="input-group nome">
+            <div class="div-input" id="div-nome">
+              <label class="sr-only" for="nome">Nome e Sobrenome</label>
+              <input onchange="FormRegister.nameField()" type="text" id="nome" name="nome"
+                placeholder="Nome e Sobrenome">
+            </div>
+          </div>
+          <div class="input-group dataNascimento">
+            <small class="">Data de Nascimento.</small>
+            <div class="div-input" id="div-dataNascimento">
+              <label class="sr-only" for="dataNascimento">Data de Nascimento</label>
+              <input onBlur="FormRegister.birthDateField()" type="date" id="dataNascimento" name="dataNascimento"
+                placeholder="Data de Nascimento">
+              <span class="ms-Icon"></span>
+            </div>
+          </div>
+          <div class="input-group email">
+            <div class="div-input" id="div-email">
+              <label class="sr-only" for="email">Email</label>
+              <input onchange="FormRegister.emailField()" type="text" id="email" name="email" placeholder="Email">
+              <span class="ms-Icon"></span>
+            </div>
+          </div>
+          <div class="input-group login">
+            <div class="div-input" id="div-login">
+              <label class="sr-only" for="login">Login</label>
+              <input onchange="FormRegister.loginField()" type="text" id="login" name="login" placeholder="Login">
+              <span class="ms-Icon"></span>
+            </div>
+          </div>
+          <div class="input-group password">
+            <div class="div-input" id="div-password">
+              <label class="sr-only" for="password">Password</label>
+              <input onchange="FormRegister.passwordField()" type="password" id="password" name="password"
+                placeholder="Password">
+              <span class="ms-Icon"></span>
+            </div>
+          </div>
+          <div class="input-group passwordTwo">
+            <div class="div-input" id="div-passwordTwo">
+              <label class="sr-only" for="passwordTwo">PasswordTwo</label>
+              <input onchange="FormRegister.passwordTwoField()" type="password" id="passwordTwo" name="passwordTwo"
+                placeholder="Password">
+            </div>
+            <span class="ms-Icon"></span>
+          </div>
+          <div class="input-group actions">
+            <button id="save-cadastro">Cadastrar</button>
+            <a onclick="Modal.closeCadastro()" href="#" class="button cancel">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+
+</html>
